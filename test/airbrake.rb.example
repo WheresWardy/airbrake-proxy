@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+require 'logger'
+require 'airbrake'
+
+error_type = 'airbrake'
+airbrake_api_key = 'AIRBRAKE_API_KEY'
+airbrake_log = Logger.new("./airbrake.log")
+
+if error_type == 'airbrake'
+	# Airbrake
+	Airbrake.configure do |config|
+		config.api_key = airbrake_api_key
+		config.logger = airbrake_log
+	end
+else
+	# airbrake-proxy
+	Airbrake.configure do |config|
+		config.api_key = airbrake_api_key
+		config.host = '127.0.0.1'
+		config.port = '6633'
+		config.logger = airbrake_log
+	end
+end
+
+class Timer
+	def self.time(&block)
+		start_time = Time.now
+		result = block.call
+		end_time = Time.now
+		@time_taken = end_time - start_time
+		result
+	end
+ 
+	def self.elapsedTime
+		return @time_taken
+	end
+end
+
+def raises_error() 
+	raise "TestException"
+end
+
+for repeat in 0..59
+	Timer.time {
+		begin
+			raises_error()
+		rescue => e
+			Airbrake.notify_or_ignore(e)
+		end
+	}
+
+	puts Timer.elapsedTime
+	sleep 1
+end
