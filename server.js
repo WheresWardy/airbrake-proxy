@@ -57,6 +57,10 @@ var xmlresponse = '<?xml version="1.0"?><notice><id>{UUID}</id><url>http://' + c
  */
 
 if (cluster.isMaster) {
+	// Give the master a proper process title in the process list
+	process.title = 'airbrake-proxy';
+
+	// Helper function to fork a child worker
 	var fork = function () {
 		cluster.fork();
 	};
