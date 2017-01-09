@@ -11,11 +11,11 @@
                 "timeout": 10000,
                 "protocol": "https",
                 "projects": {
-                        "UUID_string": {
-                                "id": "SENTRY_PROJECT_ID",
-                                "key": "SENTRY_KEY",
-                                "secret": "SENTRY_SECRET",
-                                "platform": "SENTRY_PLATFORM"
+                        "4d79d5a81c9293617c24dd740e8aab9e": {
+                                "id": "82588",
+                                "key": "102ff4ac9a244d94bf32f7e687b72007",
+                                "secret": "6fa62606e70d47e782a8e16e7b75da98",
+                                "platform": "Rails 3 (Ruby)"
                         }
                 }
         },
