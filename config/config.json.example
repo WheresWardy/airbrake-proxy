@@ -1,38 +1,32 @@
 {
-	"listen": {
-		"host": "127.0.0.1",
-		"port": 6633,
-		"workers": 1,
-		"hostname": "localhost"
-	},
-	"airbrake": {
-		"host": "api.airbrake.io",
-		"port": 443,
-		"timeout": 10000,
-		"protocol": "https"
-	},
-	"sentry": {
-		"host": "",
-		"port": 443,
-		"timeout": 10000,
-		"protocol": "https",
-		"projects": {
-			"AIRBRAKE_API_KEY": {
-				"id": "SENTRY_PROJECT_ID",
-				"key": "SENTRY_KEY",
-				"secret": "SENTRY_SECRET",
-				"platform": "SENTRY_PLATFORM"
-			}
-		}
-	},
-	"redis": {
-		"host": "127.0.0.1",
-		"port": 6379,
-		"prefix": "airbrakeproxy"
-	},
-	"statsd": {
-		"host": "127.0.0.1",
-		"port": 8125,
-		"prefix": "airbrakeproxy"
-	}
+        "listen": {
+                "host": "127.0.0.1",
+                "port": 6633,
+                "workers": 1,
+                "hostname": "localhost"
+        },
+        "sentry": {
+                "host": "app.getsentry.com",
+                "port": 443,
+                "timeout": 10000,
+                "protocol": "https",
+                "projects": {
+                        "4d79d5a81c9293617c24dd740e8aab9e": {
+                                "id": "82588",
+                                "key": "102ff4ac9a244d94bf32f7e687b72007",
+                                "secret": "6fa62606e70d47e782a8e16e7b75da98",
+                                "platform": "Rails 3 (Ruby)"
+                        }
+                }
+        },
+        "redis": {
+                "host": "127.0.0.1",
+                "port": 6379,
+                "prefix": "errorproxy"
+        },
+        "statsd": {
+                "host": "127.0.0.1",
+                "port": 8125,
+                "prefix": "errorproxy"
+        }
 }

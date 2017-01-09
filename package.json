@@ -1,10 +1,10 @@
 {
-	"name": "airbrake-proxy",
-	"author": "Matthew Ward <m@mjw.in>",
-	"description": "TCP proxy for buffering connections to Airbrake and Errbit so that they don't add request latency to reporting applications",
-	"version": "0.1.0",
+	"name": "error-proxy",
+	"author": "Matthew Ward <m@mjw.in>, Venntro <dev@venntro.com>",
+	"description": "TCP proxy for buffering connections to Sentry so that they don't add request latency to reporting applications",
+	"version": "1.0.0",
 	"repository": {
-		"url": "https://github.com/WheresWardy/airbrake-proxy"
+		"url": "https://github.com/globaldev/error-proxy"
 	},
 	"engine": "node >= 0.8.0",
 	"dependencies": {
